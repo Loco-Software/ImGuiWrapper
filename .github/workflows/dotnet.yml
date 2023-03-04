@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: build
-        path: bin/Release 
+        path: bin/Release/
         retention-days: 1
         
   publish:
