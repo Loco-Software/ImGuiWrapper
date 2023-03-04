@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: build
-        path: bin/Release/
+        path: bin/[Rr]elease/
         retention-days: 1
         if-no-files-found: error
         
@@ -51,7 +51,7 @@ jobs:
         uses: actions/download-artifact@v3.0.2
         with:
           name: build
-          path: bin/Release
+          path: bin/release
       - name: Authenticate to GitHub NuGET Registry
         run: dotnet nuget add source --username OliverKarger --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/loco-software/index.json"
       - name: Publish Package
