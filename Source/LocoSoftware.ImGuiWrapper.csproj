@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <NoWin32Manifest>true</NoWin32Manifest>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <SignAssembly>False</SignAssembly>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>ImGuiWrapper by Loco Software</Title>
+        <Authors>Oliver Karger</Authors>
+        <Company>Loco Software</Company>
+        <Copyright>2023 (C) Loco Software</Copyright>
+        <PackageProjectUrl>https://github.com/loco-software/imguiwrapper</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/loco-software/imguiwrapper.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <IncludeSymbols>True</IncludeSymbols>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>License.txt</PackageLicenseFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	    <DebugType>embedded</DebugType>
+	    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	    <DebugType>embedded</DebugType>
+	    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    </PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="../Deps/Shaders/GLSL/imgui-vertex.glsl" LogicalName="imgui-vertex.glsl" Link="Deps\imgui-vertex.glsl" />
+		<EmbeddedResource Include="../Deps/Shaders/GLSL/imgui-frag.glsl" LogicalName="imgui-frag.glsl" Link="Deps\imgui-frag.glsl" />
+		<EmbeddedResource Include="../Deps/Shaders/HLSL/imgui-vertex.hlsl.bytes" LogicalName="imgui-vertex.hlsl.bytes" Link="Deps\imgui-vertex.hlsl.bytes" />
+		<EmbeddedResource Include="../Deps/Shaders/HLSL/imgui-frag.hlsl.bytes" LogicalName="imgui-frag.hlsl.bytes" Link="Deps\imgui-frag.hlsl.bytes" />
+		<EmbeddedResource Include="../Deps/Shaders/SPIR-V/imgui-vertex.spv" LogicalName="imgui-vertex.spv" Link="Deps\imgui-vertex.spv" />
+		<EmbeddedResource Include="../Deps/Shaders/SPIR-V/imgui-frag.spv" LogicalName="imgui-frag.spv" Link="Deps\imgui-frag.spv" />
+		<EmbeddedResource Include="../Deps/Shaders/Metal/imgui-vertex.metallib" LogicalName="imgui-vertex.metallib" Link="Deps\imgui-vertex.metallib" />
+		<EmbeddedResource Include="../Deps/Shaders/Metal/imgui-frag.metallib" LogicalName="imgui-frag.metallib" Link="Deps\imgui-frag.metallib" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="../Deps/cimgui/win-x64/cimgui.dll" CopyToOutputDirectory="PreserveNewest" Link="Deps\cimgui.dll" />
+		<Content Include="../Deps/cimgui/osx/cimgui.dylib" CopyToOutputDirectory="PreserveNewest" Link="Deps\cimgui.dylib" />
+		<Content Include="../Deps/cimgui/linux-x64/cimgui.so" CopyToOutputDirectory="PreserveNewest" Link="Deps\cimgui.so" />
+		<Content Include="../Deps/Fonts/JetBrainsMono-Regular.ttf" CopyToOutputDirectory="PreserveNewest" Link="Deps\JetBrainsMono-Regular.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ImGui.NET" Version="1.89.4" />
+		<PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
+		<PackageReference Include="Veldrid" Version="4.9.0" />
+		<PackageReference Include="Veldrid.StartupUtilities" Version="4.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Deps\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\oliverkarger\Desktop\ImGuiWrapper\Source\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\License.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+</Project>
