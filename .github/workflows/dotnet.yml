@@ -31,13 +31,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -f net7.0 -c release
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3.1.2
       with:
         name: build
         path: bin/Release/
         retention-days: 1
+        if-no-files-found: error
         
   publish:
     runs-on: ubuntu-latest
