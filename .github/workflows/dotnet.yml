@@ -35,6 +35,6 @@ jobs:
     - name: Authenticate to GitHub NuGET Registry
       run: dotnet nuget add source --username OliverKarger --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/loco-software/index.json"
     - name: Publish Package
-      run: dotnet nuget push bin/Release/LocoSoftware.ImGuiWrapper.1.0.0.nupkg --source "github"
+      run: dotnet nuget push bin/release/LocoSoftware.ImGuiWrapper.1.0.0.nupkg --source "github"
 
           
