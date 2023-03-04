@@ -10,11 +10,9 @@ permissions:
   pages: write
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ closed ]
+    branches: [ main ]
 
 jobs:
   publish:
